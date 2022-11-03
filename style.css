@@ -1,0 +1,185 @@
+a {
+    text-decoration: none;
+}
+nav{
+    z-index: 2;
+    
+}
+.navbar-brand{
+    font-family: 'Viga', sans-serif;
+    font-size: 25px;
+    color: black;
+}
+.navbar-brand:hover{
+    color: black;
+}
+.container-fluid{
+    padding: 3% 8% 0;
+    background-color: #fff;
+    position: fixed;
+    width: 100;
+}
+
+.nav-item a{
+    font-size: 14px;
+    border-radius: 10px;
+    color: black;
+    font-family: 'Poppins';
+}
+
+.nav-item a:hover{
+    border-radius: 10px;
+    background-color: #034694;
+    color: #fff;
+    transition: 0.5s ;
+}
+.header{
+    margin-top: -29px;
+    z-index: 1;
+}
+.jumbotron{
+    background-image: url(img/bg_header2.png);
+    background-size: cover;
+    height: 680px;
+}
+.isi{
+    color: #000;
+    padding-top :19%;
+    font-family: 'Viga', sans-serif;
+}
+.isi .main{
+    padding: 15px 0;
+    font-size: 23px;
+}
+.btn-order{
+    background-color: #034694;
+    color: #fff;
+}
+.btn-order:hover{
+    background-color: #002f64;
+    color: #ffdb80;
+}
+.kartu:hover{
+    transition: all 0.3s ease;
+    transform: scale(1.07);
+}
+.modal{
+    font-family: 'Poppins';
+}
+.myFooter{
+    font-family: 'Poppins';
+    
+}
+.brand_footer{
+    font-family: 'Viga', sans-serif !important;
+    font-size: 25px;
+    color: white;
+}
+.brand_tagline{
+
+    font-size: 14px;
+    color: rgb(100, 100, 100);
+}
+
+/* contact css */
+.body_contact button{
+    background-color: #002f64;
+}
+.body_contact button:hover{
+    background-color: #001d3d;
+    color: #ffdb80;
+}
+.judul_form{
+    font-family: 'Viga', sans-serif;
+    color: #002f64;
+}
+/* about css */
+.body_about h1{
+    color: #002f64;
+}
+/* portofolio css */
+.judul_portofolio{
+    font-family: 'Viga', sans-serif;
+    color: #002f64;
+}
+.subjudul_portofolio{
+    font-family: 'Poppins';
+    color: #002f64;
+    opacity: 0.5;
+}
+/* blog css */
+.judul_blog{
+    font-family: 'Viga', sans-serif;
+    color: #002f64;
+}
+.subjudul_blog{
+    font-family: 'Poppins';
+    color: #002f64;
+    opacity: 0.5;
+}
+.judulisi_blog{
+    color: #002f64;
+    font-family: 'Poppins';
+}
+.isi_blog{
+    font-family: 'Poppins';
+}
+/* todos css */
+.judul_todos{
+    font-family: 'Viga', sans-serif;
+    color: #002f64;
+}
+.subjudul_todos{
+    font-family: 'Poppins';
+    color: #002f64;
+    opacity: 0.5;
+}
+
+#newtask{
+    padding-top: 1px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+#newtask input{
+    padding: 12px;
+    font-family: 'Poppins',sans-serif;
+    border: 2px solid #d1d3d4;
+}
+#newtask input::-webkit-input-placeholder{
+	color: rgba(255, 255, 255, 0.418);
+}
+
+#newtask input:focus{
+    outline: none;
+    border-color: none;
+}
+.task{
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: #c5e1e6;
+    margin-bottom: 8px;
+    padding: 5px 10px;
+    display: flex;
+}
+.task span{
+    font-family: 'Poppins',sans-serif;
+    font-size: 15px;
+    padding-left: 20px;
+}
+.task button{
+    background-color: #c5e1e6;
+    color: #000000;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+@media only screen and (max-width: 975px) {
+    .isi{
+        padding-top: 30%;
+    }
+    .container-fluid{
+        padding: 10% 5% 0;
+    }
+  }
