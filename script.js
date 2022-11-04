@@ -1,28 +1,21 @@
-
 allData()
 
-
+// untuk menghapus data yang ada di form
 function clearData(){
     document.getElementById('form').reset()
     document.getElementById('id').value = ""
 }
 
-
-    
-
-
-//method to get all data
+//fuction ini untuk ambil semua data dari local
 function allData(){
     
-    table.innerHTML = ``
-    //get data from localstorage and store to contaclist array
-    //we must to use JSON.parse, because data as string, we need convert to array
-    contactList = JSON.parse(localStorage.getItem('listItem')) ?? []
+    table.innerHTML = `` 
+    contactList = JSON.parse(localStorage.getItem('listItem')) ?? [] // disini saya pakek JSON.parse karena data masih sebagai string, mau saya ubah menjadi array
 
-    //looping data and show data in table
+    //forEach saya gunakan disini untuk menampilkan value/nilai dari local storage 
     contactList.forEach(function (value, i){
        
-        var table = document.getElementById('table')
+        let table = document.getElementById('table')
 
         table.innerHTML += `
             <tr class>
@@ -35,13 +28,13 @@ function allData(){
                 <td><strong>Tanggal</strong></td>
             </tr>
             <tr>
-                <td>${value.phone}</td>
+                <td>${value.tanggal}</td>
             </tr>
             <tr>
                 <td><strong>List</strong></td>
             </tr>
             <tr>
-                <td>${value.address}</td>
+                <td>${value.list}</td>
             </tr>
             <tr class="mb-3">
                 <td>
@@ -59,87 +52,75 @@ function allData(){
 
     
 
-//method to save data into localstorage
+//fuction ini untuk menyimpan semua data ke local dan langsung terhubung dengan button save
 function save(){
-//get data from localstorage and store to contaclist array
-//we must to use JSON.parse, because data as string, we need convert to array
 contactList = JSON.parse(localStorage.getItem('listItem')) ?? []
 
-//get last array to get last id
-//and store it into variable id
-var id
+
+let id
 contactList.length != 0 ? contactList.findLast((item) => id = item.id) : id = 0
+//dari ternary operator ini bertujuan untuk mengambil array terakhir untuk mengambil id nya lalu di simpan di variable id
 
 if(document.getElementById('id').value){
 
-//edit contactlist array based on value
 contactList.forEach(value => {
-    if(document.getElementById('id').value == value.id){
-        value.judul      = document.getElementById('juduk').value, 
-        value.phone     = document.getElementById('phone').value,
-        value.address   = document.getElementById('address').value
+    if(document.getElementById('id').value === value.id){
+        value.judul = document.getElementById('judul').value, 
+        value.tanggal = document.getElementById('tanggal').value,
+        value.list = document.getElementById('list').value
     }
 });
 
-//remove hidden input
+
 document.getElementById('id').value = ''
 
 }else{
 
-//save
-//get data from form
-var item = {
+let item = {
     id        : id + 1, 
     judul      : document.getElementById('judul').value,  
-    phone     : document.getElementById('phone').value,
-    address   : document.getElementById('address').value
+    tanggal     : document.getElementById('tanggal').value,
+    list   : document.getElementById('list').value
 }
 
-//add item data to array contactlist
 contactList.push(item)
 }
 
-// save array into localstorage
-localStorage.setItem('listItem', JSON.stringify(contactList))
+localStorage.setItem('listItem', JSON.stringify(contactList)) //simpan data ke local storage
 
-//update table list
 allData()
 
-//remove form data
+
 document.getElementById('form').reset()
 }
 
 
-//method to get detail personal data based on id
+//fungsi ini untuk melakukan edit data
 function find(id){
-//get data from localstorage and store to contaclist array
-//we must to use JSON.parse, because data as string, we need convert to array
 contactList = JSON.parse(localStorage.getItem('listItem')) ?? []
 
 contactList.forEach(function (value){
 if(value.id == id){
    document.getElementById('id').value = value.id
    document.getElementById('judul').value = value.judul
-   document.getElementById('phone').value = value.phone
-   document.getElementById('address').value = value.address
+   document.getElementById('tanggal').value = value.tanggal
+   document.getElementById('list').value = value.list
 }
 })
 }
 
 
-
+// fungsi ini berguna untuk hapus data
 function removeData(id){
-//get data from localstorage and store to contaclist array
-//we must to use JSON.parse, because data as string, we need convert to array
+
 contactList = JSON.parse(localStorage.getItem('listItem')) ?? []
 
 contactList = contactList.filter(function(value){ 
     return value.id != id; 
 });
 
-// save array into localstorage
+
 localStorage.setItem('listItem', JSON.stringify(contactList))
 
-//get data again
 allData()
 }
